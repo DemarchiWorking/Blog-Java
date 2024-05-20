@@ -18,50 +18,57 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">
-                    <h5 class="card-title">Post</h5> </a>
+                    <h5 class="card-title">Blog</h5> </a>
                 </li>
             </ol>
         </nav>
+
+        <a href="/newpost" style="position: absolute; right: 0; padding-right: 50px;">
+            <button> Cadastrar Postagem</button>
+        </a>
        <!-- <div class="card" style="width: 18rem;" th:each="post : ${posts}"> -->
-            <div class="card-body">
+        <ul>
+            <li th:each="post : ${posts}">
+                <div class="card-body"  style="padding-top: 20px">
+                    <h4 class="card-subtitle mb-2 text-body-secondary">
+                        <span th:text="${post.titulo}"></span></h4>
+                    <div class="card-body">
+                        <div class="card-body">
 
-                <h6 class="card-subtitle mb-2 text-body-secondary">
-                    Card subtitle</h6>
-                <div class="card-body">
 
-                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                        Card subtitle</h6>
+                                <p class="card-text">
+                                              <span  th:utext="${#strings.abbreviate(post.texto, 400)}"> </span>
+                                </p>
+                                <a href="#" class="card-link">
+                                    <p>  <span  th:text="${post.date}" > </span> </p>
+                                </a>
+
+                                <p class="card-link"> Autor:
+                          <span  th:text="${post.autor}" > </span>
+                            <!--   <span th:text="${post.autor}"></span>
+                            <span th:text="${post.data}"></span>
+                        </p>
+                    </div>
 
                     <p class="card-text">
-            <!--            <span  th:utext="${#strings.abbreviate(post.texto, 400)}"> </span> -->
-                    </p>
-                    <a href="#" class="card-link">
-                      <!--  <h3>  <span  th:text="${post.titulo}" > </span> </h3> -->
-                    </a>
+                        <!--    <span  th:utext="${#strings.abbreviate(post.texto, 400)}"> </span> -->
+                            </p>
+                            <a href="#" class="card-link">a</a>
+                            <!--     <h3>  <span  th:text="${post.titulo}" > </span> </h3> -->
 
-                    <p class="card-link">
-                    <ul>
-                        <li th:each="post : ${posts}">
-                            <span th:text="${post.titulo}"></span>
-                        </li>
-                    </ul>
-                    <!--    <span th:text="${post.autor}"></span> -->
-                     <!--   <span th:text="${post.data}"></span> -->
-                    </p>
+
+                            <p class="card-link">
+                                <!--    <span th:text="${post.autor}"></span> -->
+                                <!--    <span th:text="${post.data}"></span> -->
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <p class="card-text">
-                <!--    <span  th:utext="${#strings.abbreviate(post.texto, 400)}"> </span> -->
-                </p>
-                <a href="#" class="card-link">a</a>
-               <!--     <h3>  <span  th:text="${post.titulo}" > </span> </h3> -->
 
+            </li>
+        </ul>
 
-                <p class="card-link">
-                <!--    <span th:text="${post.autor}"></span> -->
-                <!--    <span th:text="${post.data}"></span> -->
-                </p>
-            </div>
         </div>
 
     </div>
